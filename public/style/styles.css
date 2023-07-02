@@ -1,0 +1,105 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+font-size: 54px;
+font-weight: 600;
+letter-spacing: 5px;
+margin-bottom: 40px;
+}
+
+.url{
+  font-size: 70px;
+  color: rgba(169, 169, 169, 0.5);
+}
+
+.url > span{
+  animation: url 5s steps(1) infinite;
+}
+
+@keyframes url {
+  5%, 9%, 13%, 25% {
+    color: rgba(169, 169, 169, 0.5);
+    text-shadow: none;
+  }
+  7%, 11%, 15%, 19%, 30%, 100% {
+    color: var(--color);
+    text-shadow: 
+    0px 0px 5px var(--color),
+    0px 0px 20px var(--color),
+    0px 0px 50px var(--color),
+    0px 0px 70px var(--color),
+    ;
+  }
+}
+.image {
+  width: 200;
+  height: 200px;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+input{
+  height: 45px;
+  width: 600px;
+  background-color: #f0f0f0;
+  border: 0;
+  border-radius: 5px;
+  padding: 0 15px;
+  font-size: 18px;
+}
+
+.btn{
+  width: 150px;
+  height: 50px;
+  margin : 20px auto;
+  border-radius: 0.2rem;
+  background: #5E86C1;
+  position: relative;
+  font-size: 20px;
+  letter-spacing: 3px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: rgba(94, 134, 193, 0.5);
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 0.2rem;
+  border: 0;
+
+  transition: 1s;
+  box-shadow: 0 0 50px 30px #5E86C1;
+  opacity: 0;
+}
+
+.btn:active::after {
+  transition: 0s;
+  box-shadow: 0 0 0px 0px #5E86C1;
+  opacity: 1;
+}

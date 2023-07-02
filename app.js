@@ -1,10 +1,10 @@
 const express = require('express');
-const exphbs = require('express-handlebars')
+const { engine } = require('express-handlebars')
 const app = express();
 const bodyParser = require('body-parser');
 const shortid = require('shortid');
 
-app.engine('.hbs', exphbs());
+app.engine('.hbs', engine({extname: '.hbs'}))
 app.set('view engine', '.hbs');
 app.set('views', './views')
 app.use(express.static('public'))
