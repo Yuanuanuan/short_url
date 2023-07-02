@@ -1,0 +1,65 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 54px;
+  font-weight: 600;
+  letter-spacing: 5px;
+  margin-bottom: 40px;
+}
+
+.url {
+  font-size: 70px;
+  color: rgba(169, 169, 169, 0.5);
+}
+
+.url>span {
+  animation: url 5s steps(1) infinite;
+}
+
+@keyframes url {
+
+  5%,
+  9%,
+  13%,
+  25% {
+    color: rgba(169, 169, 169, 0.5);
+    text-shadow: none;
+  }
+
+  7%,
+  11%,
+  15%,
+  19%,
+  30%,
+  100% {
+    color: var(--color);
+    text-shadow:
+      0px 0px 5px var(--color),
+      0px 0px 20px var(--color),
+      0px 0px 50px var(--color),
+      0px 0px 70px var(--color),
+    ;
+  }
+}
+
+.image {
+  width: 200;
+  height: 200px;
+}

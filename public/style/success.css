@@ -1,0 +1,68 @@
+.success {
+  font-size: 30px;
+  margin: 25px auto 0;
+}
+
+.short_url {
+  font-size: 22px;
+  text-decoration: none;
+  color:#5E86C1;
+  margin: 20px auto;
+  align-items: center;
+}
+
+.back {
+  width: 150px;
+  height: 50px;
+  margin: 0px 40px 0 0;
+  border-radius: 10px;
+  border: 0;
+  background: #B399FF;
+  position: relative;
+  font-size: 20px;
+  letter-spacing: 3px;
+  transition: 0.3s;
+}
+
+.back:hover {
+  background: rgba(179, 153, 255, 0.5);
+}
+
+.copy {
+  width: 150px;
+  height: 50px;
+  margin: 0px auto 0;
+  border-radius: 10px;
+  border: 0;
+  background: #5E86C1;
+  position: relative;
+  font-size: 20px;
+  letter-spacing: 3px;
+  transition: 0.3s;
+}
+
+.copy:hover {
+  background: rgba(94, 134, 193, 0.5);
+}
+
+.copy::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  border: 0;
+
+  transition: 1s;
+  box-shadow: 0 0 50px 30px #5E86C1;
+  opacity: 0;
+}
+
+.copy:active::after {
+  transition: 0s;
+  box-shadow: 0 0 0px 0px #5E86C1;
+  opacity: 1;
+}
+
+.buttons {
+  display: flex;
+}

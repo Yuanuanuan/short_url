@@ -17,20 +17,6 @@ app.get('/', (req, res) => {
   res.render('index')
 });
 
-app.post('/shorten', (req, res) => {
-  const originalUrl = req.body.url
-  const existingShortUrl = Object.keys(database).find(
-    (shortUrl) => database[shortUrl] === originalUrl
-  )
-  if (!existingShortUrl) {
-    const shortUrl = generateShortUrl()
-    database[shortUrl] = originalUrl
-  }
-
-  res.render('sucess')
-
-})
-
 app.get('/:shortUrl', (req, res) => {
   const shortUrl = req.params.shortUrl
   const originalUrl = database[shortUrl]
@@ -42,9 +28,42 @@ app.get('/:shortUrl', (req, res) => {
   }
 })
 
+app.post('/shorten', (req, res) => {
+  const originalUrl = req.body.url
+  const existingShortUrl = Object.keys(database).find(
+    (shortUrl) => database[shortUrl] === originalUrl
+  )
+  if (!existingShortUrl) {
+    const shortUrl = generateShortUrl()
+    database[shortUrl] = originalUrl
+    res.render('success', { shortUrl })
+  } else {
+    res.render('success', { shortUrl: existingShortUrl });
+  }
+
+})
+
+app.get('/back', (req, res) => {
+  res.redirect('/')
+})
+
 function generateShortUrl() {
-  return shortid.generate()
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let result = ''
+  const length = 5;
+
+  for (let i = 0; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * characters.length);
+    result += characters.charAt(randomIndex);
+  }
+
+  if (database[result]) {
+    return generateShortUrl();
+  } else {
+    return result;
+  }
 }
+
 const port = 3000;
 app.listen(port, () => {
   console.log(`伺服器已啟動，監聽在 http://localhost:${port}`);

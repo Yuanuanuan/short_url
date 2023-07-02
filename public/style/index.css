@@ -1,0 +1,32 @@
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+input{
+  height: 45px;
+  width: 800px;
+  background-color: #f0f0f0;
+  border: 0;
+  border-radius: 5px;
+  padding: 0 15px;
+  font-size: 18px;
+}
+
+.submit {
+  width: 150px;
+  height: 50px;
+  margin: 30px auto;
+  border-radius: 0.2rem;
+  background: #E9967A;
+  border: 0;
+  font-size: 20px;
+  letter-spacing: 3px;
+  transition: 0.3s;
+}
+
+.submit:hover {
+  background: rgba(255, 160, 122, 0.5);
+}

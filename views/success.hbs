@@ -1,0 +1,27 @@
+<div class="success">Success! Please use this Link:</div>
+<a href="{{shortUrl}}" class="short_url" id="URL" target="_blank" action="/">http://localhost:3000/{{shortUrl}}
+</a>
+<div class="buttons">
+  <button class="back" onclick="location.href='/'">Back</button>
+  <button class="copy"  type="button" id="copyButton" onclick="copy()">
+  Copy
+  </button>
+</div>
+
+<script>
+  function copy() {
+    const copyText = document.getElementById("URL");
+    const aux = document.createElement("input");
+    // 设置文本输入框的值为要复制的链接
+    aux.setAttribute("value", copyText.href);
+    // 将文本输入框添加到文档中
+    document.body.appendChild(aux);
+    // 选中文本输入框中的内容
+    aux.select();
+    // 执行复制命令
+    document.execCommand("copy");
+    // 移除辅助的文本输入框
+    document.body.removeChild(aux);
+  }
+</script>
+
